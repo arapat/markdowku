@@ -1,0 +1,7 @@
+base   markdowku
+author Julian Fagir
+email  gnrp@komkon2.de
+date   2014-04-21
+name   New PHP Markdown plugin
+desc   Integrates Markdown into Dokuwiki syntax
+url    http://www.komkon2.de/dokuwiki/doku.php?id=projects:markdowku
