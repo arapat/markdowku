@@ -30,10 +30,10 @@ class syntax_plugin_markdowku_codeblocks extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_codeblocks');
     }
     
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         switch ($state) {
             case DOKU_LEXER_ENTER:
-                $ReWriter = & new Doku_Handler_Preformatted($handler->CallWriter);
+                $ReWriter = new Doku_Handler_Preformatted($handler->CallWriter);
                 $handler->CallWriter = & $ReWriter;
                 $handler->_addCall('preformatted_start', array($match), $pos);
                 break;
@@ -54,7 +54,7 @@ class syntax_plugin_markdowku_codeblocks extends DokuWiki_Syntax_Plugin {
         return true;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return false;
     }
 }

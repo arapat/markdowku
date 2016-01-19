@@ -14,7 +14,7 @@ class syntax_plugin_markdowku_hr extends DokuWiki_Syntax_Plugin {
 
     function getType()  { return 'container'; }
     function getPType() { return 'block'; }
-    function getSort()  { return 08; } /* Before list block parsing. */
+    function getSort()  { return 0; } /* Before list block parsing. */
  
     function connectTo($mode) {
         /* We use two newlines, as we don't want to conflict with setext header 
@@ -35,12 +35,12 @@ class syntax_plugin_markdowku_hr extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_hr');
     }
  
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         $handler->_addCall('hr', array(), $pos);
         return true;
     }
  
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

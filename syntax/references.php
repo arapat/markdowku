@@ -21,11 +21,11 @@ class syntax_plugin_markdowku_references extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_references');
     }
 
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         return array($state, $match);
     }
 
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         if ($mode != 'metadata')
             return false;
 

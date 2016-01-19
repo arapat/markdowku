@@ -12,7 +12,7 @@ require_once(DOKU_PLUGIN.'syntax.php');
 class syntax_plugin_markdowku_olists extends DokuWiki_Syntax_Plugin {
     function getType()  { return 'container'; }
     function getPType() { return 'block'; }
-    function getSort()  { return 09; }
+    function getSort()  { return 0; }
     function getAllowedTypes() {
         return array('formatting', 'substition', 'paragraphs', 'baseonly');
     }
@@ -34,10 +34,10 @@ class syntax_plugin_markdowku_olists extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_olists');
     }
     
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         switch ($state) {
             case DOKU_LEXER_ENTER:
-                $ReWriter = & new Doku_Handler_Markdown_Ordered_List($handler->CallWriter);
+                $ReWriter = new Doku_Handler_Markdown_Ordered_List($handler->CallWriter);
                 $handler->CallWriter = & $ReWriter;
                 $handler->_addCall('list_open', array($match), $pos);
                 break;
@@ -57,7 +57,7 @@ class syntax_plugin_markdowku_olists extends DokuWiki_Syntax_Plugin {
         return true;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

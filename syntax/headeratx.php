@@ -23,7 +23,7 @@ class syntax_plugin_markdowku_headeratx extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_headeratx');
     }
   
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         global $conf;
 
         $title = trim($match);
@@ -50,7 +50,7 @@ class syntax_plugin_markdowku_headeratx extends DokuWiki_Syntax_Plugin {
         return true;
     }
   
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

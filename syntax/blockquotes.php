@@ -45,14 +45,14 @@ class syntax_plugin_markdowku_blockquotes extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_blockquotes');
     }
   
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         global $DOKU_PLUGINS;
 
         preg_match('/^\n[ \t]*>(?:[ \t>]*>)?[ \t]?/', $match, $quotearg);
         $quoteinarg = preg_replace('/^\n[ \t]*>(?:[ \t>]*>)?[ \t]?/', '', $match);
 
         if ($state == DOKU_LEXER_ENTER) {
-            $ReWriter = & new Doku_Handler_Markdown_Quote($handler->CallWriter);
+            $ReWriter = new Doku_Handler_Markdown_Quote($handler->CallWriter);
             $handler->CallWriter = & $ReWriter;
             $handler->_addCall('quote_start', $quotearg, $pos);
         } elseif ($state == DOKU_LEXER_EXIT) {
@@ -87,7 +87,7 @@ class syntax_plugin_markdowku_blockquotes extends DokuWiki_Syntax_Plugin {
         return true;
     }
 
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

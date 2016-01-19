@@ -21,11 +21,11 @@ class syntax_plugin_markdowku_codespans1 extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_codespans1');
     }
 
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         return array($match);
     }
  
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         $renderer->monospace_open();
         $renderer->cdata(substr($data[0], 1, -1));
         $renderer->monospace_close();

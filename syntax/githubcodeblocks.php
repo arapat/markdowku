@@ -25,7 +25,7 @@ class syntax_plugin_markdowku_githubcodeblocks extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_githubcodeblocks');
     }
     
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
 		if (preg_match('/^\n```([a-z0-9_]+)\n/', $match, $matches) > 0) {
 			$lang = $matches[1];
 		} else {
@@ -41,7 +41,7 @@ class syntax_plugin_markdowku_githubcodeblocks extends DokuWiki_Syntax_Plugin {
         return true;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

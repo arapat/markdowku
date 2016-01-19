@@ -21,7 +21,7 @@ class syntax_plugin_markdowku_autolinks extends DokuWiki_Syntax_Plugin {
         );
     }
     
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
 		if (preg_match('/^<mailto:/', $match)) {
             $match = substr($match, 8, -1);
    	        $handler->_addCall('emaillink', array($match, NULL), $pos);
@@ -33,7 +33,7 @@ class syntax_plugin_markdowku_autolinks extends DokuWiki_Syntax_Plugin {
         return true;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

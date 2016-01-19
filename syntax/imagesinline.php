@@ -23,7 +23,7 @@ class syntax_plugin_markdowku_imagesinline extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_imagesinline');
     }
 
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         if ($state == DOKU_LEXER_SPECIAL) {
             $text = preg_match(
                 '/^\!\[('.$this->nested_brackets_re.')\]\([ \t]*<?(.+?)>?[ \t]*(?:[\'"](.*?)[\'"])?[ \t]*?\)$/',
@@ -36,7 +36,7 @@ class syntax_plugin_markdowku_imagesinline extends DokuWiki_Syntax_Plugin {
         return true;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }

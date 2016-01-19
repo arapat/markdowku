@@ -30,7 +30,7 @@ class syntax_plugin_markdowku_headersetext extends DokuWiki_Syntax_Plugin {
             'plugin_markdowku_headersetext');
     }
 
-    function handle($match, $state, $pos, &$handler) {
+    function handle($match, $state, $pos, Doku_Handler $handler) {
         $title = preg_replace('/^\n(.+?)[ \t]*\n.*/', '\1', $match);
         $title = trim($title);
         if (preg_match('/^\n(.+?)[ \t]*\n=/', $match))
@@ -49,7 +49,7 @@ class syntax_plugin_markdowku_headersetext extends DokuWiki_Syntax_Plugin {
         return true;
     }
 
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
         return true;
     }
 }
