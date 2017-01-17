@@ -1,5 +1,5 @@
 base   markdowku
-author Julian Fagir & Julaiti Alafate
+author Julian Fagir
 email  gnrp@komkon2.de
 date   2016-01-19
 name   New PHP Markdown plugin
